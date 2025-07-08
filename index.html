@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostafa El-Feel - Robotics Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+        }
+        .neon-text {
+            color: #64ffda;
+        }
+        .section-heading {
+            color: #ccd6f6;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #64ffda;
+            border: 4px solid #0a192f;
+        }
+        .timeline-path {
+            position: absolute;
+            left: -21px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% - 20px);
+            background-color: #8892b0;
+        }
+        .skill-bar-fill {
+            background: linear-gradient(90deg, rgba(100,255,218,1) 0%, rgba(54,162,235,1) 100%);
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .card-enter {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .card-enter-active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="bg-gray-900/50 backdrop-blur-sm fixed w-full top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-bold neon-text">Mostafa El-Feel</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="nav-link text-gray-300 hover:neon-text transition duration-300">About</a>
+                <a href="#education" class="nav-link text-gray-300 hover:neon-text transition duration-300">Education</a>
+                <a href="#experience" class="nav-link text-gray-300 hover:neon-text transition duration-300">Experience</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:neon-text transition duration-300">Projects</a>
+                <a href="#skills" class="nav-link text-gray-300 hover:neon-text transition duration-300">Skills</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:neon-text transition duration-300">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="nav-link block py-2 text-gray-300 hover:neon-text">About</a>
+            <a href="#education" class="nav-link block py-2 text-gray-300 hover:neon-text">Education</a>
+            <a href="#experience" class="nav-link block py-2 text-gray-300 hover:neon-text">Experience</a>
+            <a href="#projects" class="nav-link block py-2 text-gray-300 hover:neon-text">Projects</a>
+            <a href="#skills" class="nav-link block py-2 text-gray-300 hover:neon-text">Skills</a>
+            <a href="#contact" class="nav-link block py-2 text-gray-300 hover:neon-text">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left card-enter">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Mostafa Ashraf El-Feel</h1>
+                    <h2 class="text-2xl md:text-3xl font-light neon-text mb-6">Robotics & Mechatronics Engineer</h2>
+                    <p class="text-lg text-gray-400 mb-8">
+                        A passionate Mechatronics Engineer with a recent degree from Ain Shams University and professional experience as an Embedded Teaching Assistant. I thrive on building intelligent systems and solving complex robotics challenges.
+                    </p>
+                    <a href="https://github.com/MostafaELFEEL" target="_blank" rel="noopener noreferrer" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-3 px-8 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300">View My Work</a>
+                </div>
+                <div class="flex justify-center card-enter" style="transition-delay: 150ms;">
+                    <img src="https://placehold.co/400x400/0a192f/64ffda?text=M.E." alt="Mostafa El-Feel Professional Photo" class="rounded-full border-4 border-[#64ffda] shadow-lg shadow-[#64ffda]/20">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">About Me</h2>
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-gray-400 leading-relaxed">
+                    I am a driven Mechatronics Engineer specializing in embedded systems and robotics. My journey has been marked by significant achievements, including developing the award-winning 'SADEM' project—a swarm of autonomous drones for 3D mapping. This project not only secured 2nd place in the International Competition on Smart Cities 2023 but also received funding from ITIDA and ASRT. My goal is to leverage my skills in C/C++, Python, and ROS to contribute to cutting-edge robotic solutions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Education</h2>
+            <div class="max-w-4xl mx-auto relative pl-8">
+                <div class="timeline-path"></div>
+                <div class="timeline-item mb-8 relative card-enter">
+                    <h3 class="text-xl font-semibold text-white">Mechatronics Engineering, B.Sc.</h3>
+                    <p class="text-gray-400">Ain Shams University | Sep 2018 - Jul 2023</p>
+                    <button class="text-neon-text text-sm mt-1" onclick="toggleDetails('edu-details')">Show Details</button>
+                    <div id="edu-details" class="hidden mt-2 text-gray-500 text-sm">
+                        <p><strong>GPA:</strong> 3.38/4.00 (Excellent Performance)</p>
+                        <p><strong>Honors:</strong> ICHEP 2023</p>
+                        <p><strong>Key Coursework:</strong> Microcontroller Fundamentals, RTOS Concepts, Advanced Control Systems, Machine Vision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Professional Experience</h2>
+            <div class="max-w-4xl mx-auto relative pl-8">
+                <div class="timeline-path"></div>
+                <!-- Experience Item 1 -->
+                <div class="timeline-item mb-12 relative card-enter">
+                    <h3 class="text-xl font-semibold text-white">Embedded Teaching Assistant</h3>
+                    <p class="text-gray-400">Ain Shams University | Jul 2024 - Present</p>
+                    <p class="mt-2 text-gray-400">Taught microcontroller fundamentals, C programming, and build processes. Covered GPIO, Interrupts, Timers, ADC, PWM, UART, SPI, I2C, CAN, and FreeRTOS concepts.</p>
+                </div>
+                <!-- Experience Item 2 -->
+                <div class="timeline-item mb-12 relative card-enter">
+                    <h3 class="text-xl font-semibold text-white">Embedded Software Engineer Internship</h3>
+                    <p class="text-gray-400">Siemens EDA | Jun 2024 - Sep 2024</p>
+                     <p class="mt-2 text-gray-400">Gained expertise in CPU architecture, memory types, and communication protocols. Explored RTOS, HSM core, AUTOSAR framework, and Agile testing methods.</p>
+                </div>
+                <!-- Experience Item 3 -->
+                <div class="timeline-item mb-12 relative card-enter">
+                    <h3 class="text-xl font-semibold text-white">Instructor at Autotronics Research Lab (ARL)</h3>
+                    <p class="text-gray-400">Racing Team, Ain Shams University | Aug 2023 - Jan 2024</p>
+                     <p class="mt-2 text-gray-400">Led workshops to train and mentor participants on robotic simulation for the 2024 season.</p>
+                </div>
+                <!-- Experience Item 4 -->
+                <div class="timeline-item relative card-enter">
+                    <h3 class="text-xl font-semibold text-white">EV Member</h3>
+                    <p class="text-gray-400">Racing Team, Ain Shams University | Oct 2021 - Mar 2022</p>
+                     <p class="mt-2 text-gray-400">Designed an efficient radiator system for EV heat dissipation, validating calculations with ANSYS simulation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Technical Skills</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Skill Category 1 -->
+                <div class="card-enter">
+                    <h3 class="text-xl font-semibold neon-text mb-4">Programming</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-code mr-3 neon-text"></i> C & C++</li>
+                        <li class="flex items-center"><i class="fab fa-python mr-3 neon-text"></i> Python</li>
+                        <li class="flex items-center"><i class="fab fa-linux mr-3 neon-text"></i> Linux</li>
+                        <li class="flex items-center"><i class="fab fa-git-alt mr-3 neon-text"></i> Git & GitHub</li>
+                        <li class="flex items-center"><i class="fas fa-robot mr-3 neon-text"></i> ROS / ROS2</li>
+                        <li class="flex items-center"><i class="fas fa-database mr-3 neon-text"></i> SQL</li>
+                    </ul>
+                </div>
+                <!-- Skill Category 2 -->
+                <div class="card-enter">
+                    <h3 class="text-xl font-semibold neon-text mb-4">Microcontrollers</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-microchip mr-3 neon-text"></i> Tiva C (ARM)</li>
+                        <li class="flex items-center"><i class="fab fa-raspberry-pi mr-3 neon-text"></i> Raspberry Pi</li>
+                        <li class="flex items-center"><i class="fas fa-microchip mr-3 neon-text"></i> ATmega32 (AVR)</li>
+                        <li class="flex items-center"><i class="fas fa-microchip mr-3 neon-text"></i> STM32 / ESP32</li>
+                    </ul>
+                </div>
+                <!-- Skill Category 3 -->
+                <div class="card-enter">
+                    <h3 class="text-xl font-semibold neon-text mb-4">Development Tools</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-tools mr-3 neon-text"></i> Keil uVision5</li>
+                        <li class="flex items-center"><i class="fas fa-tools mr-3 neon-text"></i> STM32CubeIDE</li>
+                        <li class="flex items-center"><i class="fas fa-tools mr-3 neon-text"></i> IAR Embedded WB</li>
+                        <li class="flex items-center"><i class="fas fa-tools mr-3 neon-text"></i> Atmel Studio</li>
+                    </ul>
+                </div>
+                <!-- Skill Category 4 -->
+                <div class="card-enter">
+                    <h3 class="text-xl font-semibold neon-text mb-4">Automation & PLCs</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-cogs mr-3 neon-text"></i> PLC & Ladder Logic</li>
+                        <li class="flex items-center"><i class="fas fa-desktop mr-3 neon-text"></i> Siemens TIA Portal</li>
+                        <li class="flex items-center"><i class="fas fa-chart-bar mr-3 neon-text"></i> HMI & SCADA</li>
+                        <li class="flex items-center"><i class="fas fa-industry mr-3 neon-text"></i> FactoryIO</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">My Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal1')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=SADEM+Drones" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">SADEM: Swarm of Drones</h3>
+                            <p class="text-gray-400 mt-2">Award-winning project for autonomous 3D environment mapping.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/SADEM_Simulation_ROS2" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for SADEM Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal2')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Robotic+Arm" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">6-DoF Robotic Arm</h3>
+                            <p class="text-gray-400 mt-2">ROS-based simulation and control of a robotic arm.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/6-DoF-Manipulator-Simulation" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Robotic Arm Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                     <div class="cursor-pointer" onclick="openModal('modal3')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Path+Planning" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">3D A* Path Planning</h3>
+                            <p class="text-gray-400 mt-2">Finding the shortest path for a drone in complex environments.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/A-Star-Path-Planning-Simulated-On-Coppeliasim-ROS2" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for 3D Path Planning Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                 <!-- Project Card 4 -->
+                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal4')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Autonomous+Robot" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Autonomous Mobile Robot</h3>
+                            <p class="text-gray-400 mt-2">Autonomous train ticket verification system.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/Semi-Autonomous-Train-Ticket-Examiner-Robot-Komsary" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Autonomous Robot Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal5')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Kalman+Filter" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Kalman Filter Localization</h3>
+                            <p class="text-gray-400 mt-2">Accurate 2D localization for a TurtleBot3 robot.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/Turtlebot3_localization_kalman_Filter" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Kalman Filter Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                 <!-- Project Card 6 -->
+                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal6')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Assembly+Line" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Automated Assembly Line</h3>
+                            <p class="text-gray-400 mt-2">Developed a handling station with dual conveyors.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/Mini-Production-Line" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Assembly Line Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 7 -->
+                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal7')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Smart+Light" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Smart Lighting System</h3>
+                            <p class="text-gray-400 mt-2">Home automation system to adjust ambient light.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Smart Lighting Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 8 -->
+                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal8')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Calculator" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Multi-Mode Calculator</h3>
+                            <p class="text-gray-400 mt-2">Combines arithmetic, timer, and stopwatch functions.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL/Multi-Mode-Calculator-with-Timer-and-Stopwatch-Embedded-Systems-Design-TM4C123GH6PM" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Calculator Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 9 -->
+                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 card-enter flex flex-col justify-between">
+                    <div class="cursor-pointer" onclick="openModal('modal9')">
+                        <img src="https://placehold.co/600x400/0a192f/64ffda?text=Traffic+Light" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white">Intelligent Traffic Light</h3>
+                            <p class="text-gray-400 mt-2">Adapts to real-time traffic demand.</p>
+                        </div>
+                    </div>
+                     <div class="px-6 pb-4 flex justify-end">
+                        <a href="https://github.com/MostafaELFEEL" target="_blank" onclick="event.stopPropagation()" class="text-gray-400 hover:neon-text transition duration-300" aria-label="GitHub for Traffic Light Project">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-gray-400 text-lg mb-8">
+                    I'm currently seeking new opportunities and I'm open to collaboration. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                </p>
+                <form id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <input type="text" name="from_name" placeholder="Your Name" class="bg-gray-800 w-full p-3 rounded-lg border border-gray-700 focus:outline-none focus:border-[#64ffda]" required>
+                        <input type="email" name="from_email" placeholder="Your Email" class="bg-gray-800 w-full p-3 rounded-lg border border-gray-700 focus:outline-none focus:border-[#64ffda]" required>
+                    </div>
+                    <textarea name="message" placeholder="Your Message" rows="5" class="bg-gray-800 w-full p-3 rounded-lg border border-gray-700 focus:outline-none focus:border-[#64ffda] mb-6" required></textarea>
+                    <button id="submit-button" type="submit" class="bg-[#64ffda] text-gray-900 font-bold py-3 px-8 rounded-full hover:opacity-90 transition duration-300">
+                        Send Message
+                    </button>
+                </form>
+                 <div id="form-status" class="mt-4 text-lg"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/MostafaELFEEL" target="_blank" class="hover:neon-text transition duration-300"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/mostafa-ashraf-elfeel" target="_blank" class="hover:neon-text transition duration-300"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="mailto:mostafa.ashraf.i.2000@gmail.com" class="hover:neon-text transition duration-300"><i class="fas fa-envelope fa-2x"></i></a>
+            </div>
+            <p>&copy; 2024 Mostafa Ashraf El-Feel. Built with passion and code.</p>
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    <div id="modal1" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal1')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">SADEM: Swarm of Autonomous Drones</h3>
+            <p class="text-gray-400 mb-4">Developed a swarm of autonomous drones with stereo ZED cameras for detailed 3D mapping, utilizing inertial navigation, visual odometry, and wireless protocols for coordination, with computation handled by an on-ground base station.</p>
+            <p class="font-bold">Grade: A+</p>
+            <p class="font-bold mt-2">Awards:</p>
+            <ul class="list-disc list-inside text-gray-400">
+                <li>2nd Place, International Competition on Smart Cities 2023</li>
+                <li>2nd Place in the IoT category, Ebdaa Competition 2023</li>
+                <li>Project Fund, ITIDA and ASRT</li>
+                <li>Finalist, Dell Technologies Envision the Future</li>
+            </ul>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/SADEM_Simulation_ROS2" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal2" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal2')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">6-DoF Robotic Arm Simulation</h3>
+            <p class="text-gray-400 mb-4">Simulated a 6-DoF robotic arm using ROS, integrating URDF modeling, path planning, and control. Improved accuracy and stability with PID control, verified actions in Gazebo simulator, and enabled precise navigation through Python-based target coordination.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/6-DoF-Manipulator-Simulation" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+     <div id="modal3" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal3')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">3D A* Path Planning</h3>
+            <p class="text-gray-400 mb-4">Implemented the 3D A* path planning algorithm to find the shortest possible path for a drone to navigate through various simulated environments. This project focused on optimizing the algorithm for computational efficiency and path smoothness.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/A-Star-Path-Planning-Simulated-On-Coppeliasim-ROS2" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal4" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal4')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">Autonomous Mobile Robot</h3>
+            <p class="text-gray-400 mb-4">Created an autonomous train ticket verification system. The robot was designed to identify users, validate their access permissions, and navigate smoothly through a simulated station environment to ensure efficient operation and passenger flow.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/Semi-Autonomous-Train-Ticket-Examiner-Robot-Komsary" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal5" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal5')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">2D Kalman Filter for Localization</h3>
+            <p class="text-gray-400 mb-4">Implemented a 2D Kalman Filter to achieve accurate positioning and localization of the TurtleBot3 robot within a simulated environment. Conducted extensive tests to validate the filter's accuracy and robustness against sensor noise and odometry errors.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/Turtlebot3_localization_kalman_Filter" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal6" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal6')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">Automated Assembly Line</h3>
+            <p class="text-gray-400 mb-4">Developed and implemented a Handling Station featuring dual conveyor belts and an elevator for efficient factory operations. This project seamlessly integrated Feeding, Assembly, Sorting, and Disassembly stations into a cohesive, automated workflow.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/Mini-Production-Line" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal7" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal7')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">Smart Lighting System</h3>
+            <p class="text-gray-400 mb-4">Created a smart lighting system for home automation that adjusts based on ambient light and allows manual control for convenience.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal8" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal8')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">Multi-Mode Calculator</h3>
+            <p class="text-gray-400 mb-4">Designed a multi-mode calculator that combines arithmetic, timer, and stopwatch functions.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL/Multi-Mode-Calculator-with-Timer-and-Stopwatch-Embedded-Systems-Design-TM4C123GH6PM" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal9" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal9')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">Intelligent Traffic Light System</h3>
+            <p class="text-gray-400 mb-4">Designed an intelligent traffic light system that adapts to real-time demand, enhancing pedestrian and vehicle coordination for smoother traffic flow.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+    <div id="modal10" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden" onclick="closeModal('modal10')">
+        <div class="bg-gray-800 rounded-lg p-8 max-w-2xl w-full text-white" onclick="event.stopPropagation()">
+            <h3 class="text-2xl font-bold mb-4 neon-text">Payment Transaction System</h3>
+            <p class="text-gray-400 mb-4">Developed a simulated payment transaction system with four key modules—Card, Terminal, Server, and Application—ensuring secure authentication, transaction validation, and balance checks for accurate processing.</p>
+            <div class="mt-6 flex justify-end">
+                <a href="https://github.com/MostafaELFEEL" target="_blank" class="bg-transparent border-2 border-[#64ffda] text-[#64ffda] py-2 px-6 rounded-full font-bold hover:bg-[#64ffda] hover:text-gray-900 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View on GitHub
+                </a>
+           </div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Initialize EmailJS ---
+        // IMPORTANT: Add your Public Key here
+        (function() {
+            emailjs.init({
+              publicKey: "YOUR_PUBLIC_KEY",
+            });
+        })();
+
+        // --- DOM Elements ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitButton = document.getElementById('submit-button');
+
+        // --- Mobile Menu Toggle ---
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Smooth Scrolling & Mobile Menu Handling ---
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    // Smoothly scroll to the target section
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // Close mobile menu if it's open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // --- Header scroll effect ---
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('py-2');
+                header.classList.add('py-4');
+            }
+        });
+
+        // --- Expandable details ---
+        function toggleDetails(elementId) {
+            const element = document.getElementById(elementId);
+            element.classList.toggle('hidden');
+        }
+
+        // --- Modal logic ---
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // --- Intersection Observer for animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('card-enter-active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const cards = document.querySelectorAll('.card-enter');
+        cards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(card);
+        });
+
+        // --- Functional Contact Form using EmailJS ---
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // IMPORTANT: Add your Service ID and Template ID here
+            const serviceID = 'YOUR_SERVICE_ID';
+            const templateID = 'YOUR_TEMPLATE_ID';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    // Success
+                    formStatus.textContent = "Thank you! Your message has been sent.";
+                    formStatus.className = 'mt-4 text-lg neon-text';
+                    contactForm.reset();
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send Message';
+                }, (err) => {
+                    // Error
+                    formStatus.textContent = "Oops! " + JSON.stringify(err);
+                    formStatus.className = 'mt-4 text-lg text-red-500';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send Message';
+                });
+        });
+    </script>
+</body>
+</html>
